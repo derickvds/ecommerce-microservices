@@ -15,6 +15,12 @@ namespace Basket.API.Controllers
     {
         private readonly IBasketRepository _repository;
 
+        public BasketController(IBasketRepository repository)
+        {
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        }
+
+
         [HttpGet("{userName}", Name = "GetBasket")]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCart>> GetBasket(string userName)
