@@ -75,7 +75,7 @@ namespace Discount.API.Repositories
 
             var affected = await connection.ExecuteAsync("DELETE FROM Coupon WHERE ProductName = @ProductName",
                 new { ProductName = productName });
-            s
+            
             if (affected == 0)
             {
                 return false;
